@@ -9,14 +9,12 @@
 		</div>
 	</div> 	  	
 	<div class="list">
-	    <a ng-repeat="item in items" 
-	       
-	       class="item item-thumbnail-left">
-
+	    <a ng-repeat="item in items" class="item item-thumbnail-left">
 	      <img ng-src="{{ item.image }}">
 	      <h2>{{ item.nome }}</h2>
-	      <h4>{{ item.bairro }}</h4>
-	      <h4>{{ item.pontuacao }}</h4>
+	      <h3>{{ item.bairro }}</h3>
+	      <h3><!--{{ item.pontuacao }}--> <i class="ion-android-star stars"></i><i class="ion-android-star stars"></i><i class="ion-android-star stars"></i><i class="ion-android-star stars"></i><i class="ion-android-star stars"></i></h3>
+	      
 	      <!--<i class="ion-android-star"></i>-->
 	    </a>
     </div> 

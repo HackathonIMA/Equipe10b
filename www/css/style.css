@@ -24,6 +24,10 @@
 }
 
 /* Class */
+.pink-text {	
+	color: #ff4081;
+}
+
 .button-center-hack {
 	margin: 0 auto;
 }
@@ -49,6 +53,14 @@
 
 .text-white {
 	color: #fff;
+}
+
+.btn-search {
+	/*display: none;*/
+}
+
+.stars {
+	color: #f1c40f;
 }
 
 /*remover botoes do topo do maps*/
