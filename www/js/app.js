@@ -51,21 +51,43 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('app.map', {
-      url: '/map',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/map.html',
-          controller: 'MapPageCtrl'
-        }
+
+  .state('app.memo', {
+    url: '/memo',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/memo.html',
+        controller: 'Memo'
       }
-    })
+    }
+  })
+
+  .state('app.school', {
+    url: '/schoolperfil',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/schoolperfil.html',
+        controller: 'SchoolPerfil'
+      }
+    }
+  })
+
+  .state('app.map', {
+    url: '/map',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/map.html',
+        controller: 'MapPageCtrl'
+      }
+    }
+  })  
 
   .state('app.ranking', {
     url: '/ranking',
     views: {
       'menuContent': {
-        templateUrl: 'templates/ranking.html'
+        templateUrl: 'templates/ranking.html',
+        controller: 'Ranking'
       }
     }
   });

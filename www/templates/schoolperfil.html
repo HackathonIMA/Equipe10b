@@ -1,0 +1,62 @@
+<ion-view view-title="Perfil da escola" ng-controller="SchoolPerfil">
+  <ion-content>  
+	<div ng-repeat="dado in dados">
+		<div class="item item-image">
+			<img ng-src="{{ dado.image }}">
+    		<!--<img src="../img/escola-demo.jpg">-->
+  		</div>
+  		<div class="name-area">
+  			<div class="row">
+  				<div class="col">
+  					<p class="name-school">{{ dado.nome }}</p>
+  					<p class="text-white">{{ dado.nota }}</p>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="list card">
+			<a href="#" class="item item-icon-left">
+			<i class="icon ion-android-call"></i>
+				<p class="text-center">{{ dado.telefone }}</p>
+			</a>
+			<a href="#" class="item item-icon-left">
+			<i class="icon ion-ios-location"></i>
+				<p class="text-center">{{ dado.localizacao }}</p>
+			</a>
+			<div class="item item-text-wrap">
+				<div class="item">		    	    
+				    <p>{{ dado.descricao }}</p>			    
+	  			</div> 
+			</div>			
+		</div>	
+	</div>
+	<div>
+		<h4 class="text-center">Mural de avisos</h4>
+		<div class="card" ng-repeat="post in mural">
+			<div class="item item-text-wrap">
+				<div class="item">	
+					<h4><strong>{{ post.aviso }}</strong></h4>	    	    
+				    <p>{{ post.texto }}</p>			    
+	  			</div> 
+			</div>
+		</div>
+	</div>
+  </ion-content>
+</ion-view>
+
+
+<!--<div class="list card">
+
+  <div class="item item-avatar">
+    <img src="avatar.jpg">
+    <h2>Pretty Hate Machine</h2>
+    <p>Nine Inch Nails</p>
+  </div>
+
+  
+
+  <a class="item item-icon-left assertive" href="#">
+    <i class="icon ion-music-note"></i>
+    Start listening
+  </a>
+
+</div>-->

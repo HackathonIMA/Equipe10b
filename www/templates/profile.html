@@ -1,9 +1,37 @@
 <ion-view view-title="Perfil" ng-controller="Profile">
-  <ion-content>  	  	
-	<div class="item item-avatar">
-    <img src="../img/avatar.png">
-    <h2>Iron Man</h2>
-    <p>descrição</p>
-  </div>  
+  <ion-content>  
+	<div class="card">
+		<div class="item item-text-wrap">
+			<div class="item item-avatar" ng-repeat="dado in dados" >
+			    <!--<img src="../img/avatar.png">-->
+			    <img ng-src="{{ dado.image }}">
+			    <h2>{{ dado.nome }}</h2>			    
+			    <p>{{ dado.telefone }}</p>
+			    <p>{{ dado.email }}</p>
+  			</div> 
+		</div>
+	</div>	
+	<h4 class="text-center">Editar perfil</h4>
+	<div class="card">
+		<div class="item item-text-wrap">
+			<div class="list">
+				<label class="item item-input item-stacked-label">
+				<span class="input-label">Nome</span>
+				<input type="text" placeholder="João da Silva">
+				</label>
+				<label class="item item-input item-stacked-label">
+				<span class="input-label">Telefone</span>
+				<input type="text" placeholder="(19) 3025-5545">
+				</label>
+				<label class="item item-input item-stacked-label">
+				<span class="input-label">E-mail</span>
+				<input type="text" placeholder="joão_silva@gmail.com">
+				</label>
+				<button class="button button-balanced button-block">
+					Atualizar
+				</button>
+			</div> 
+		</div>
+	</div>
   </ion-content>
 </ion-view>

@@ -1,0 +1,13 @@
+<ion-view view-title="Comunicado" ng-controller="Memo">
+  <ion-content>  
+	<div class="card" ng-repeat="dado in dados">
+		<div class="item item-text-wrap">
+			<div class="item">			    
+			    <h2>{{ dado.titulo }}</h2>	
+			    <br />		    
+			    <p>{{ dado.descricao }}</p>			    
+  			</div> 
+		</div>
+	</div>
+  </ion-content>
+</ion-view>

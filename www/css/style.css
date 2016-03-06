@@ -36,6 +36,21 @@
 	text-transform: uppercase;
 }
 
+.name-area {
+	width: 100%;
+	height: auto;
+	background-color: #886AEA;	
+}
+
+.name-school {
+	font-size: 18px;
+	color: #fff;
+}
+
+.text-white {
+	color: #fff;
+}
+
 /*remover botoes do topo do maps*/
 .gmnoprint {
 	display: none;
