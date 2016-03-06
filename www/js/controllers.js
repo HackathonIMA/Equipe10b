@@ -52,17 +52,17 @@ angular.module('starter.controllers', [])
 .controller('Ranking', function($scope, $stateParams) {
   
   $scope.items = [
-    { id: 1, nome: 'Escola 1', bairro: 'Bairro: x', pontuacao: '5.0', image: '../img/escola-demo.jpg' },
-    { id: 2, nome: 'Escola 1', bairro: 'Bairro: x', pontuacao: '5.0', image: '../img/escola-demo.jpg' },
-    { id: 3, nome: 'Escola 1', bairro: 'Bairro: x', pontuacao: '5.0', image: '../img/escola-demo.jpg' },
-    { id: 4, nome: 'Escola 1', bairro: 'Bairro: x', pontuacao: '5.0', image: '../img/escola-demo.jpg' },    
+    { id: 1, nome: 'Escola 1', bairro: 'Bairro: Taquaral', pontuacao: '5.0', image: 'http://www.shanebear.com/Projetos/images-hackaton/escola-demo.jpg' },
+    { id: 2, nome: 'Escola 1', bairro: 'Bairro: Parque Imperador', pontuacao: '5.0', image: 'http://www.shanebear.com/Projetos/images-hackaton/escola-2.jpg' },
+    { id: 3, nome: 'Escola 1', bairro: 'Bairro: Cambui', pontuacao: '5.0', image: 'http://www.shanebear.com/Projetos/images-hackaton/escola-3.jpg' },
+    { id: 4, nome: 'Escola 1', bairro: 'Bairro: Ponte Preta', pontuacao: '5.0', image: 'http://www.shanebear.com/Projetos/images-hackaton/escola-4.jpg' },    
   ];
 
 })
 
 .controller('Profile', function($scope, $stateParams) {  
   $scope.dados = [
-    { id: 1, nome: 'Tony Stark', telefone: '(19) 3254-4458', email: 'tonystark@stark.com', image: '../img/avatar.png' }   
+    { id: 1, nome: 'Tony Stark', telefone: '(19) 3254-4458', email: 'tonystark@stark.com', image: 'http://www.shanebear.com/Projetos/images-hackaton/avatar.png' }   
   ];
 
 })
@@ -75,56 +75,63 @@ angular.module('starter.controllers', [])
 
 .controller('SchoolPerfil', function($scope, $stateParams) {
   $scope.dados = [    
-    { id: 1, nome: 'COTIL - Colégio Técnico de Limeira', image: '../img/escola-demo.jpg', nota: '5', telefone: '3256-2546', localizacao: 'Rua Marcos Castro, 2200, Ouro Verde', descricao: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores maxime, quisquam est tempora cupiditate, provident rem ipsam at aliquam perferendis fuga aliquid vel repudiandae deleniti, ducimus sit, libero atque non.' }   
+    { id: 1, nome: 'COTIL - Colégio Técnico de Limeira', image: 'http://www.shanebear.com/Projetos/images-hackaton/escola-demo.jpg', nota: '5', telefone: '3256-2546', localizacao: 'Rua Marcos Castro, 2200, Ouro Verde', descricao: 'O Colégio Técnico de Limeira - COTIL, da Universidade Estadual de Campinas, foi criado pela Lei Estadual no 7.655, de 28 de dezembro de 1962, e autorizado a ser instalado e a entrar em funcionamento pela Resolução C.E.E. no 46/66 e Deliberação C.E.E. no 12/70, Diário Oficial de 29/01/72, página 21.' }   
   ];
 
   $scope.mural = [    
-    { id: 1, aviso: 'Início das aulas', texto: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio temporibus similique atque eaque veniam mollitia aliquam illo dolor tempora animi nesciunt rerum, quod sed, magnam officiis reprehenderit, consequuntur qui saepe.' },
-    { id: 2, aviso: 'Viagem escolar', texto: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio temporibus similique atque eaque veniam mollitia aliquam illo dolor tempora animi nesciunt rerum, quod sed, magnam officiis reprehenderit, consequuntur qui saepe.' }      
+    { id: 1, aviso: 'Início das aulas', texto: 'Olá alunos, gostariamos de comunicar que este ano daremos início em nossas atividades na primeira semana de fevereiro. Estejam preparados!' },
+    { id: 2, aviso: 'Viagem escolar', texto: 'Viagem para as cataratas de Foz do Iguaçu em março.' }      
   ];
 
   $scope.comments = [    
-    { id: 1, nome: 'Amanda', image: '../img/avatar-female.png', texto: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio temporibus similique atque eaque veniam mollitia aliquam illo dolor tempora animi nesciunt rerum, quod sed, magnam officiis reprehenderit, consequuntur qui saepe.' },
-    { id: 2, nome: 'Carolina', image: '../img/avatar-female.png', texto: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio temporibus similique atque eaque veniam mollitia aliquam illo dolor tempora animi nesciunt rerum, quod sed, magnam officiis reprehenderit, consequuntur qui saepe.' }      
+    { id: 1, nome: 'Amanda', image: 'http://www.shanebear.com/Projetos/images-hackaton/avatar-female.png', texto: 'A qualidade de ensino de minha escola é excelente, porém gostaria que fosse adicionado a grade curricular aulas de teatro.' },
+    { id: 2, nome: 'Carolina', image: 'http://www.shanebear.com/Projetos/images-hackaton/avatar-female.png', texto: 'Gosto bastante dos professores, o laboratório de química da escola é bastante interessante.' }      
   ];
 })
 
-.controller('MapCtrl', function($scope, $ionicLoading, $compile, MapService) {
-  function initialize() {
-    var myLatlng = new google.maps.LatLng(-22.9246713,-47.0756226);
-  
-    MapService.GetPlaces()
-    .success(function (response) {
-       $ionicLoading.hide();
-       $rootScope.userProfile = response;
-       authService.SetUserProfileData(response);
-       
-    })
-    .error(function (err) {
-       $ionicLoading.hide();
-      
-    });
-
+.controller('MapCtrl', function($scope, $compile) { //$ionicLoading,
+function initialize() {
+    var myLatlng = new google.maps.LatLng(-22.8985515,-47.0631356);
+    
     var mapOptions = {
       center: myLatlng,
-      zoom: 12,
+      zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
     
     //Marker + infowindow + angularjs compiled ng-click
-    var contentString = "<div><a ng-click='clickTest()'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores hic, sequi suscipit odio ab atque. Ut ipsam atque ipsum fuga quasi, suscipit vero optio sit voluptatem. Aspernatur facilis recusandae obcaecati.!</a></div>";
+    var contentString = "<div><a ng-click='clickTest()'><h4>CEI São João Batista</h4><br /><p><i class='ion-android-star stars'></i><i class='ion-android-star stars'></i><i class='ion-android-star stars'></i><i class='ion-android-star stars'></i></p><br /><p>Mais informações sobre esta instituição de ensino.</p></a></div>";
     var compiled = $compile(contentString)($scope);
 
     var infowindow = new google.maps.InfoWindow({
       content: compiled[0]
     });
 
+
     var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
-      title: 'Uluru (Ayers Rock)'
+      title: 'Escola'
+    });
+
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(-22.902544,-47.0620757),
+      map: map,
+      title: 'Escola'
+    });
+
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(-22.902544,-47.0820757),
+      map: map,
+      title: 'Escola'
+    });
+
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(-22.902544,-47.0920757),
+      map: map,
+      title: 'Escola'
     });
 
     google.maps.event.addListener(marker, 'click', function() {
@@ -133,7 +140,9 @@ angular.module('starter.controllers', [])
 
     $scope.map = map;
   }
+
   google.maps.event.addDomListener(window, 'load', initialize);
+
   
   $scope.centerOnMe = function() {
     if(!$scope.map) {
@@ -141,7 +150,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.loading = $ionicLoading.show({
-      content: 'Procurando localização...',
+      content: 'Getting current location...',
       showBackdrop: false
     });
 
@@ -149,14 +158,15 @@ angular.module('starter.controllers', [])
       $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
       $scope.loading.hide();
     }, function(error) {
-      alert('Não foi possivel encontrar sua localização: ' + error.message);
+      alert('Unable to get location: ' + error.message);
     });
   };
   
   $scope.clickTest = function() {
-    alert('Example of infowindow with ng-click')
-  };  
-  
+    //alert('Example of infowindow with ng-click')
+    location.href="#/app/schoolperfil";
+  };
+      
 });
 
 function showSearchMap() {  
