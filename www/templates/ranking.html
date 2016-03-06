@@ -1,0 +1,23 @@
+<ion-view view-title="Melhores avaliadas" ng-controller="Ranking">
+  <ion-content> 
+  	<div id="search-menu">
+	  	<div class="bar bar-header item-input-inset">
+	  		<label class="item-input-wrapper">
+	    		<i class="icon ion-ios-search placeholder-icon"></i>
+	    		<input type="search" placeholder="Buscar">
+	  		</label> 
+		</div>
+	</div> 	  	
+	<div class="list">
+	    <a ng-repeat="item in items" 
+	       
+	       class="item item-thumbnail-left">
+
+	      <img ng-src="{{ item.image }}">
+	      <h2>{{ item.nome }}</h2>
+	      <h4>{{ item.bairro }}</h4>
+	      <h4>{{ item.rua }}</h4>
+	    </a>
+    </div> 
+  </ion-content>
+</ion-view>
